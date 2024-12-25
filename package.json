@@ -14,7 +14,9 @@
     "test": "jest",
     "test-coverage": "jest --coverage --collectCoverageFrom='src/**/*.{ts,tsx}'"
   },
-  "dependencies": {},
+  "dependencies": {
+    "pixi.js-legacy": "^7.2.4"
+  },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.5",
     "@types/jest": "^29.5.12",

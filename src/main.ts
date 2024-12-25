@@ -1,24 +1,20 @@
 import './style.css';
-import typescriptLogo from './typescript.svg';
-import viteLogo from '../public/vite.svg';
-import setupCounter from './counter';
+import * as PIXI from 'pixi.js-legacy';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`;
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
+const ROOT = document.querySelector<HTMLDivElement>('#root')!;
+const app = new PIXI.Application<HTMLCanvasElement>({
+  width: 800,
+  height: 800,
+  forceCanvas: true,
+});
+ROOT.appendChild(app.view);
+const mainContainer = new PIXI.Container();
+const g1 = new PIXI.Graphics();
+g1.beginFill('#ff0000').drawEllipse(0, 0, 200, 100).endFill();
+g1.position.set(200, 100);
+g1.angle = 30;
+g1.on('pointerdown', () => {
+  console.log('g1 pointerdown!');
+});
+mainContainer.addChild(g1);
+app.stage.addChild(mainContainer);
