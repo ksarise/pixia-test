@@ -1,5 +1,5 @@
 import App from './app/app';
-import './style.css';
+import './shared/index.scss';
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
